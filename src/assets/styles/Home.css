@@ -1,0 +1,13 @@
+.home-container {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 56px; /* Espacio para la barra de navegación fija */
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+  width: 100%;
+  max-width: 600px;
+}
