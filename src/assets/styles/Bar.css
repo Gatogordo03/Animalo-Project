@@ -1,0 +1,23 @@
+.bottom-navigation {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.1);
+}
+
+.MuiBottomNavigationAction-root {
+  min-width: 60px;
+}
+
+.MuiBottomNavigationAction-root.Mui-selected {
+  color: #1976d2;
+}
+
+.MuiBottomNavigationAction-label {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.MuiBottomNavigationAction-iconOnly .MuiBottomNavigationAction-label {
+  padding-top: 6px;
+}

@@ -16,3 +16,7 @@
   justify-content: center;
   margin-top: 16px;
 }
+
+.carousel .slide img {
+  width: 100%;
+}

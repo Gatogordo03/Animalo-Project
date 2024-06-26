@@ -1,0 +1,38 @@
+/* src/pages/Cart.css */
+.cart-container {
+  padding: 16px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart-item:last-child {
+  border-bottom: none;
+}
+
+.cart-item-name {
+  flex-grow: 1;
+}
+
+.cart-item-quantity {
+  margin-right: 16px;
+}
+
+.cart-item-price {
+  margin-right: 16px;
+}
+
+.cart-total {
+  margin-top: 16px;
+  font-weight: bold;
+}
+
+.cart-pay-button {
+  margin-top: 16px;
+}

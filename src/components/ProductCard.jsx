@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   Card,
   CardContent,
@@ -13,12 +13,13 @@ import {
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-import Slider from "react-slick";
-import "../assets/styles/slick-carousel/slick.css";
-import "../assets/styles/slick-carousel/slick-theme.css";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "../assets/styles/ProductCard.css";
+import { CartContext } from "../context/CartContext";
 
 const ProductCard = ({ product }) => {
+  const { addToCart } = useContext(CartContext);
   const [open, setOpen] = useState(false);
   const [quantity, setQuantity] = useState(1);
 
@@ -40,12 +41,9 @@ const ProductCard = ({ product }) => {
     }
   };
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
+  const handleAddToCart = () => {
+    addToCart(product, quantity);
+    handleClose();
   };
 
   return (
@@ -70,13 +68,13 @@ const ProductCard = ({ product }) => {
       <Dialog open={open} onClose={handleClose} fullWidth maxWidth="sm">
         <DialogTitle>{product.name}</DialogTitle>
         <DialogContent>
-          <Slider {...settings}>
+          <Carousel>
             {product.images.map((img, index) => (
               <div key={index}>
-                <img src={img} alt={product.name} style={{ width: "100%" }} />
+                <img src={img} alt={product.name} />
               </div>
             ))}
-          </Slider>
+          </Carousel>
           <Typography variant="body1" style={{ marginTop: 16 }}>
             {product.fullDescription}
           </Typography>
@@ -96,12 +94,7 @@ const ProductCard = ({ product }) => {
           <Button onClick={handleClose} color="primary">
             Cancelar
           </Button>
-          <Button
-            onClick={() => {
-              /* lógica para agregar al carrito */
-            }}
-            color="primary"
-          >
+          <Button onClick={handleAddToCart} color="primary">
             Agregar al carrito
           </Button>
         </DialogActions>
